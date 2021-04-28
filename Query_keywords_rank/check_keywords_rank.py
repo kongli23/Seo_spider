@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 '''
-查询url收录类
+查询关键词前 50 的排名
 '''
 import requests
 import json
 from threading import Thread
 from queue import Queue
-import user_agent
+# import user_agent
 
 class Baidu_query(Thread):
 
@@ -24,7 +24,10 @@ class Baidu_query(Thread):
 
                 # 判断返回的源码是否字符串，如果是则说明被检测了
                 if isinstance(source,str):
-                    print(f'被百度识别了....{source}')
+                    print(f'被百度识别了....')
+
+                    # 检测到被识别之后再次将关键词放入队列中查询
+                    self.queue_urllist.put(kw)
                     continue
                 self.parse_html(kw,source)
 
@@ -46,13 +49,13 @@ class Baidu_query(Thread):
                 is_rank['url'] = url
                 is_rank['pn'] = pn
                 is_rank['kw'] = kw
-                print(f'标题：{title}\t链接：{url}，当前排名：{pn}，关键词：{kw}')
-        print('*' * 50)
+                # print(f'标题：{title}\t链接：{url}，当前排名：{pn}，关键词：{kw}')
+        # print('*' * 50)
         if kw not in is_rank.get('kw',''):
             print(f'{kw}-----无排名')
 
     def download(self,kw):
-        query = f'http://www.baidu.com/s?ie=UTF-8&wd={kw}&tn=json&rn=50'
+        query = f'https://www.baidu.com/s?ie=UTF-8&wd={kw}&tn=json&rn=50'
         headers = {
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
             'Accept-Encoding': 'gzip, deflate, br',
@@ -84,13 +87,13 @@ if __name__ == '__main__':
     queue_urllist = Queue()
 
     # 载入待查询的url
-    with open('keys.txt',encoding='utf-8') as f:
+    with open('tags.txt',encoding='utf-8') as f:
         for x in f:
             queue_urllist.put(x.strip())
 
     domain = 'sellertop.com'
     # 开两个线程查询
-    for x in range(2):
+    for x in range(10):
         baidu = Baidu_query(queue_urllist,domain)
         baidu.daemon = True
         baidu.start()
