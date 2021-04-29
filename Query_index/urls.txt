@@ -1,15 +1,12 @@
 http://www.sellertop.com/home/news/detail/id/1144.html
-http://www.sellertop.com/home/news/detail/id/1206.html
 http://www.sellertop.com/home/special/article/id/1211.html
 http://www.sellertop.com/home/news/detail/id/1220.html
 http://www.sellertop.com/home/news/detail/id/1216.html
-http://www.sellertop.com/home/news/detail/id/1226.html
 http://www.sellertop.com/home/news/detail/id/1225.html
 http://www.sellertop.com/home/news/detail/id/1224.html
 http://www.sellertop.com/home/news/detail/id/1230.html
 http://www.sellertop.com/home/news/detail/id/1234.html
 http://www.sellertop.com/home/news/detail/id/1235.html
-http://www.sellertop.com/home/news/detail/id/1236.html
 http://www.sellertop.com/home/news/detail/id/1237.html
 http://www.sellertop.com/home/news/detail/id/1239.html
 http://www.sellertop.com/home/news/detail/id/1242.html
@@ -21,4 +18,8 @@ http://www.sellertop.com/home/news/detail/id/1255.html
 http://www.sellertop.com/home/news/detail/id/1253.html
 http://www.sellertop.com/home/news/detail/id/1252.html
 http://www.sellertop.com/home/special/article/id/1251.html
-http://www.sellertop.com/home/special/article/id/1250.html
+http://www.sellertop.com/home/news/detail/id/1261.html
+http://www.sellertop.com/home/news/detail/id/1262.html
+http://www.sellertop.com/home/news/detail/id/1256.html
+http://www.sellertop.com/home/news/detail/id/1257.html
+http://www.sellertop.com/home/special/article/id/1259.html

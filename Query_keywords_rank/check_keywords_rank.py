@@ -39,20 +39,26 @@ class Baidu_query(Thread):
         entry = feed.get('entry',[])
 
         is_rank = dict()
+        # exist_rank = dict()
         for item in entry[:-1]:
             title = item.get('title','')
             url = item.get('url','')
             pn = item.get('pn','')
 
+            # 将存在排名的信息存储
             if self.domain in url:
-                is_rank['title'] = title
-                is_rank['url'] = url
-                is_rank['pn'] = pn
-                is_rank['kw'] = kw
+                # is_rank['title'] = title
+                # is_rank['url'] = url
+                # is_rank['pn'] = pn
+                # is_rank['kw'] = kw
+                is_rank['rank'] = title+'|'+url+'|'+str(pn)+'|'+kw
                 # print(f'标题：{title}\t链接：{url}，当前排名：{pn}，关键词：{kw}')
         # print('*' * 50)
-        if kw not in is_rank.get('kw',''):
-            print(f'{kw}-----无排名')
+
+        # 判断是否存在排名
+        # if kw not in is_rank.get('kw',''):
+        #     print(f'{kw}-----无排名')
+        print(is_rank)
 
     def download(self,kw):
         query = f'https://www.baidu.com/s?ie=UTF-8&wd={kw}&tn=json&rn=50'
@@ -87,7 +93,7 @@ if __name__ == '__main__':
     queue_urllist = Queue()
 
     # 载入待查询的url
-    with open('tags.txt',encoding='utf-8') as f:
+    with open('xianggang.txt',encoding='utf-8') as f:
         for x in f:
             queue_urllist.put(x.strip())
 
