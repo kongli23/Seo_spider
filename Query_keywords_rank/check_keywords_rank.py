@@ -93,7 +93,7 @@ if __name__ == '__main__':
     queue_urllist = Queue()
 
     # 载入待查询的url
-    with open('xianggang.txt',encoding='utf-8') as f:
+    with open('tags.txt',encoding='utf-8') as f:
         for x in f:
             queue_urllist.put(x.strip())
 
